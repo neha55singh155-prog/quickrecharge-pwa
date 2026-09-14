@@ -1,0 +1,66 @@
+{
+    "app_name": "QuickRecharge",
+    "app_tagline": "Fast \u2022 Secure \u2022 Instant",
+    "top_banner_slides": [
+        {"id": 1, "title": "Cashback Offer", "subtitle": "Get 10% cashback on first recharge", "bg_color": "#5F259F", "accent_color": "#FFD54F", "icon": "\ud83d\udcb0", "active": true, "order": 1},
+        {"id": 2, "title": "Unlimited Plans", "subtitle": "Starting from \u20b9199 only", "bg_color": "#ED1C24", "accent_color": "#FFFFFF", "icon": "\ud83d\udd25", "active": true, "order": 2},
+        {"id": 3, "title": "Family Pack", "subtitle": "Recharge for 4 connections", "bg_color": "#0A3D91", "accent_color": "#90CAF9", "icon": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66", "active": true, "order": 3},
+        {"id": 4, "title": "5G Upgrade", "subtitle": "Free 5G SIM delivery", "bg_color": "#00897B", "accent_color": "#B2DFDB", "icon": "\u26a1", "active": true, "order": 4}
+    ],
+    "offer_title": "Special Offer Ends In",
+    "offer_minutes": 9,
+    "offer_seconds": 48,
+    "promo_brand": "PhonePe",
+    "promo_title": "BEST SAVINGS OFFERS",
+    "promo_subtitle": "Save more on every recharge \u2022 Limited period",
+    "promo_hot_deal": "HOT DEAL \u2014 2M+ Recharges",
+    "promo_plans": [
+        {
+            "price": 299,
+            "data": "2GB\/DAY",
+            "validity": "84 DAYS",
+            "calls": "Unlimited",
+            "featured": false,
+            "ribbon": ""
+        },
+        {
+            "price": 399,
+            "data": "2GB\/DAY",
+            "validity": "180 DAYS",
+            "calls": "Unlimited",
+            "featured": true,
+            "ribbon": "MOST PICKED"
+        },
+        {
+            "price": 499,
+            "data": "3GB\/DAY",
+            "validity": "365 DAYS",
+            "calls": "Unlimited",
+            "featured": false,
+            "ribbon": ""
+        }
+    ],
+    "stats": [
+        {
+            "value": "4.8\u2605",
+            "label": "App rating"
+        },
+        {
+            "value": "2M+",
+            "label": "Recharges"
+        },
+        {
+            "value": "< 5s",
+            "label": "Recharge time"
+        },
+        {
+            "value": "24\/7",
+            "label": "Support"
+        }
+    ],
+    "trust_items": [
+        "Protected",
+        "Instant Plans",
+        "Verified"
+    ]
+}

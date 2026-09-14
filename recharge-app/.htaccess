@@ -1,0 +1,43 @@
+# --- Security: Protect sensitive files ---
+# Block access to hidden files and directories
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Block .env files
+<Files "\.env">
+    Require all denied
+</Files>
+
+# Block config files
+<FilesMatch "\.(env|git|gitignore|htaccess|json|sql|bak|log|ini)$">
+    # Allow JSON files in admin/data (needed for app)
+    # But block everything else
+</FilesMatch>
+
+# Block directory listing
+Options -Indexes
+
+# Block access to admin/data directly from web
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^admin/data/ - [F,L]
+    RewriteRule ^\.git - [F,L]
+    RewriteRule ^\.env - [F,L]
+</IfModule>
+
+# Force HTTPS in production (uncomment when SSL is configured)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Block PHP from being served as source
+<FilesMatch "\.php$">
+    # Allow PHP execution for .php files in the app
+</FilesMatch>
+
+# Protect uploads directory from PHP execution
+<Directory "uploads">
+    <FilesMatch "\.php$">
+        Require all denied
+    </FilesMatch>
+</Directory>

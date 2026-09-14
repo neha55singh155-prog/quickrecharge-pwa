@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Jio",
+        "code": "jio",
+        "color": "linear-gradient(135deg,#0A3D91,#1E6DD1)",
+        "image": "uploads\/operators\/op_jio.jpg",
+        "active": true,
+        "order": 1
+    },
+    {
+        "id": 2,
+        "name": "Airtel",
+        "code": "airtel",
+        "color": "linear-gradient(135deg,#ED1C24,#FF3B30)",
+        "image": "uploads\/operators\/op_airtel.jpg",
+        "active": true,
+        "order": 2
+    },
+    {
+        "id": 3,
+        "name": "Vi",
+        "code": "vi",
+        "color": "linear-gradient(135deg,#CC0000,#FF1A1A)",
+        "image": "uploads\/operators\/op_vi.jpg",
+        "active": true,
+        "order": 3
+    },
+    {
+        "id": 4,
+        "name": "BSNL",
+        "code": "bsnl",
+        "color": "linear-gradient(135deg,#0A8A4B,#22C55E)",
+        "image": "uploads\/operators\/op_bsnl.jpg",
+        "active": true,
+        "order": 4
+    }
+]

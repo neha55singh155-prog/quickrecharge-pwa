@@ -1,0 +1,10 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="20" cy="20" r="20" fill="url(#airtel-gradient)"/>
+  <text x="20" y="25" text-anchor="middle" fill="white" font-family="Poppins" font-size="12" font-weight="700">Airtel</text>
+  <defs>
+    <linearGradient id="airtel-gradient" x1="0" y1="0" x2="40" y2="40">
+      <stop offset="0%" stop-color="#ED1C24"/>
+      <stop offset="100%" stop-color="#FF4147"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,281 @@
+/* Payment — PhonePe Premium Loader */
+.payment-screen {
+    min-height:100%;;
+    background: linear-gradient(180deg, var(--color-bg) 0%, #EDE9FF 55%, #DDD6FF 100%);
+    display: flex;
+    flex-direction: column; position:relative; overflow:hidden;
+}
+.payment-screen::before{
+    content:''; position:absolute; width:360px; height:360px;
+    background: radial-gradient(circle, rgba(95,37,159,0.07) 0%, transparent 70%);
+    top:120px; left:50%; transform:translateX(-50%); pointer-events:none;
+}
+
+/* Header — PhonePe Purple Gradient */
+.payment-header {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    padding-top: calc(16px + env(safe-area-inset-top));
+    background: var(--phonepe-gradient);
+    border-bottom: none;
+    box-shadow:0 4px 16px rgba(95,37,159,0.25);
+}
+
+.payment-back {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.payment-back:active {
+    background: rgba(255,255,255,0.15);
+}
+
+.payment-back svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+.payment-header-title {
+    flex: 1;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    margin-right: 44px;
+}
+
+/* Payment Content */
+.payment-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Payment Animation — PhonePe UPI */
+.payment-animation {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 32px;
+    position: relative;
+}
+.payment-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    background: white;
+    border:1px solid rgba(95,37,159,0.06);
+    box-shadow:0 10px 32px rgba(95,37,159,0.10), 0 2px 8px rgba(0,0,0,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: payPulse 1.8s ease-in-out infinite;
+}
+.payment-icon {
+    width:72px;
+    height:72px;
+    color: var(--color-primary);
+}
+.payment-upi-badge{
+    position:absolute; bottom:-10px; left:50%; transform:translateX(-50%);
+    background: var(--phonepe-gradient); color:white; font-size:10px; font-weight:800;
+    padding:4px 10px; border-radius:20px; display:flex; align-items:center; gap:5px;
+    box-shadow:0 4px 12px rgba(95,37,159,0.25); letter-spacing:0.4px;
+}
+@keyframes payPulse{ 0%,100%{ transform:scale(1);} 50%{ transform:scale(1.03);} }
+
+.payment-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 1.5s linear infinite;
+}
+
+.payment-ring:nth-child(2) {
+    width: 85%;
+    height: 85%;
+    border-top-color: var(--color-primary-light);
+    animation-duration: 2s;
+    animation-direction: reverse;
+}
+
+.payment-ring:nth-child(3) {
+    width: 110%;
+    height: 110%;
+    border-top-color: rgba(95, 37, 159, 0.3);
+    animation-duration: 2.5s;
+}
+
+/* Payment Info */
+.payment-info {
+    margin-bottom: 32px;
+}
+
+.payment-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #141414;
+    margin-bottom: 8px;
+}
+
+.payment-subtitle {
+    font-size: 14px;
+    color: #6B6B6B;
+    line-height: 1.5;
+}
+
+.payment-amount {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(95, 37, 159, 0.08);
+    padding: 12px 20px;
+    border-radius: 16px;
+    margin-top: 16px;
+}
+
+.payment-amount-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* Progress Bar — PhonePe */
+.payment-progress {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 28px;
+    background:white; border:1px solid rgba(95,37,159,0.06); border-radius:16px; padding:14px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.04);
+}
+.progress-bar {
+    height:8px;
+    background: #F0EAFF; border-radius:10px;
+    overflow: hidden; border:1px solid rgba(95,37,159,0.06); margin-bottom:10px;
+}
+.progress-fill {
+    height: 100%; width: 0%;
+    background: var(--phonepe-gradient);
+    border-radius:10px; transition: width 0.4s cubic-bezier(0.2,0.8,0.2,1);
+    box-shadow:0 0 8px rgba(95,37,159,0.25);
+}
+.progress-text {
+    display: flex; justify-content: space-between;
+    font-size:12px; font-weight:600; color:#6B6B6B;
+}
+.progress-text #progressPercent{ color:var(--color-primary); font-weight:800; }
+
+/* Steps */
+.payment-steps {
+    width: 100%;
+    max-width: 280px;
+}
+
+.payment-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+
+.payment-step.active {
+    opacity: 1;
+}
+
+.payment-step.completed {
+    opacity: 1;
+}
+
+.payment-step-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(95, 37, 159, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.payment-step.active .payment-step-dot {
+    background: var(--color-primary);
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.payment-step.completed .payment-step-dot {
+    background: #22C55E;
+}
+
+.payment-step-dot svg {
+    width: 14px;
+    height: 14px;
+    color: white;
+    opacity: 0;
+}
+
+.payment-step.completed .payment-step-dot svg {
+    opacity: 1;
+}
+
+.payment-step-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #141414;
+}
+
+/* Cancel */
+.payment-cancel {
+    margin-top: 40px;
+}
+
+.payment-cancel-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: transparent;
+    color: #6B6B6B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid rgba(107, 107, 107, 0.2);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payment-cancel-btn:active {
+    background: rgba(107, 107, 107, 0.05);
+}
+
+.payment-cancel-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+@keyframes spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}

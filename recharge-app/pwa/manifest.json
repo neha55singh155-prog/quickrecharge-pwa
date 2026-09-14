@@ -1,0 +1,79 @@
+{
+    "name": "QuickRecharge — Fast • Secure • Instant",
+    "short_name": "QuickRecharge",
+    "description": "India's fastest mobile recharge app. Pay with UPI via PhonePe, GPay, Paytm.",
+    "start_url": "/PWE/recharge-app/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#F5F0FF",
+    "theme_color": "#5F259F",
+    "lang": "en",
+    "dir": "ltr",
+    "scope": "/PWE/recharge-app/",
+    "categories": ["finance", "utilities"],
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "/PWE/recharge-app/assets/icons/icon-72.png",
+            "sizes": "72x72",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/PWE/recharge-app/assets/icons/icon-96.png",
+            "sizes": "96x96",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/PWE/recharge-app/assets/icons/icon-128.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/PWE/recharge-app/assets/icons/icon-144.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/PWE/recharge-app/assets/icons/icon-152.png",
+            "sizes": "152x152",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/PWE/recharge-app/assets/icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/PWE/recharge-app/assets/icons/icon-384.png",
+            "sizes": "384x384",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/PWE/recharge-app/assets/icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [],
+    "shortcuts": [
+        {
+            "name": "Quick Recharge",
+            "short_name": "Recharge",
+            "url": "/PWE/recharge-app/",
+            "icons": [
+                {
+                    "src": "/PWE/recharge-app/assets/icons/icon-96.png",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ]
+}

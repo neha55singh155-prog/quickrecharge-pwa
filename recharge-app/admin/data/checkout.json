@@ -1,0 +1,58 @@
+{
+    "hero_title": "Secure Checkout",
+    "hero_sub": "UPI \u2022 Verified \u2022 Fast",
+    "upi_id": "9354431180@ptyes",
+    "merchant_name": "manish mehra",
+    "merchant_display_name": "QuickRecharge Store",
+    "currency": "INR",
+    "description": "Mobile Recharge",
+    "qr_image": "",
+    "upi_apps": [
+        {
+            "id": "phonepe",
+            "name": "PhonePe",
+            "desc": "Recommended \u2022 Fastest",
+            "badge": "Popular",
+            "color": "#5f259f",
+            "logo": "",
+            "active": true
+        },
+        {
+            "id": "gpay",
+            "name": "Google Pay",
+            "desc": "One tap pay",
+            "badge": "",
+            "color": "#4285f4",
+            "logo": "uploads\/upi\/logo_2_1789382270.jpg",
+            "active": true
+        },
+        {
+            "id": "paytm",
+            "name": "Paytm",
+            "desc": "One tap pay",
+            "badge": "",
+            "color": "#00baf2",
+            "logo": "uploads\/upi\/logo_3_1789382270.jpg",
+            "active": true
+        },
+        {
+            "id": "qr",
+            "name": "UPI QR Code",
+            "desc": "Scan and pay with any UPI app",
+            "badge": "",
+            "color": "#333333",
+            "logo": "",
+            "active": true
+        }
+    ],
+    "security_text": "100% Secure Payments",
+    "security_sub": "Your payment is protected with UPI and bank-level security",
+    "summary_title": "Recharge Summary",
+    "summary_sub": "Please check your details before payment",
+    "trust_items": [
+        "Secure",
+        "Instant Recharge",
+        "Trusted by Millions"
+    ],
+    "qr_expiry_minutes": 5
+}

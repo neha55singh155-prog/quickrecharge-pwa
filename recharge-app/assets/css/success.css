@@ -1,0 +1,257 @@
+/* Success Screen Styles */
+
+.success-screen {
+    min-height:100%;;
+    background: linear-gradient(180deg, var(--color-bg) 0%, #EDE9FF 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Success Content */
+.success-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Success Animation */
+.success-animation {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 32px;
+    position: relative;
+}
+
+.success-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: scaleIn 0.5s ease forwards;
+}
+
+.success-checkmark {
+    width: 80px;
+    height: 80px;
+    color: #22C55E;
+    animation: checkmark 0.5s ease forwards 0.3s;
+    opacity: 0;
+}
+
+.success-checkmark.animate {
+    opacity: 1;
+}
+
+.success-rings {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.success-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(34, 197, 94, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 1s ease forwards;
+}
+
+.success-ring:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.success-ring:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Success Info */
+.success-info {
+    margin-bottom: 32px;
+}
+
+.success-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #141414;
+    margin-bottom: 8px;
+    animation: slideUp 0.5s ease forwards 0.5s;
+    opacity: 0;
+}
+
+.success-subtitle {
+    font-size: 14px;
+    color: #6B6B6B;
+    line-height: 1.5;
+    animation: slideUp 0.5s ease forwards 0.6s;
+    opacity: 0;
+}
+
+/* Success Card — PhonePe */
+.success-card {
+    width: 100%;
+    background: white;
+    border: 1px solid rgba(95,37,159,0.06);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    animation: slideUp 0.5s ease forwards 0.7s;
+    opacity: 0;
+}
+
+.success-card-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(95, 37, 159, 0.08);
+}
+
+.success-card-row:last-child {
+    border-bottom: none;
+}
+
+.success-card-label {
+    font-size: 14px;
+    color: #6B6B6B;
+}
+
+.success-card-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #141414;
+}
+
+.success-card-value.amount {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.success-card-value.success {
+    color: #22C55E;
+}
+
+/* Confetti */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--color-primary);
+    opacity: 0;
+    animation: confettiFall 3s ease forwards;
+}
+
+.confetti:nth-child(odd) {
+    background: var(--color-primary-light);
+}
+
+.confetti:nth-child(3n) {
+    background: #22C55E;
+    border-radius: 50%;
+}
+
+.confetti:nth-child(4n) {
+    background: #F59E0B;
+}
+
+/* Bottom Actions */
+.success-actions {
+    padding: 16px 20px;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+    animation: slideUp 0.5s ease forwards 0.8s;
+    opacity: 0;
+}
+
+.success-btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 56px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(95, 37, 159, 0.3);
+    margin-bottom: 12px;
+}
+
+.success-btn-primary:active {
+    transform: scale(0.98);
+}
+
+.success-btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 56px;
+    padding: 16px 24px;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px);
+    color: var(--color-primary);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid var(--color-primary);
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.success-btn-secondary:active {
+    transform: scale(0.98);
+}
+
+@keyframes checkmark {
+    0% { stroke-dashoffset: 100; }
+    100% { stroke-dashoffset: 0; }
+}
+
+@keyframes ripple {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+@keyframes confettiFall {
+    0% {
+        opacity: 1;
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(720deg);
+    }
+}

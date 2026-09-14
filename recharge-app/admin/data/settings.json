@@ -1,0 +1,8 @@
+{
+    "app_name": "Free Recharge ",
+    "maintenance_mode": "0",
+    "min_recharge": "10",
+    "max_recharge": "10000",
+    "support_email": "support@rechargeapp.com",
+    "UPI_ID": "9354431180@ptyes"
+}
