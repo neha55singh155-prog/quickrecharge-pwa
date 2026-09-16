@@ -241,7 +241,7 @@ window.CheckoutScreen = {
         this._planId = parseInt(data.plan_id||'',10) || parseInt((data.plan&&data.plan.id)||'',10) || 0;
         this.plan = null; this.serverAmount = 0;
         // Resolve authoritative session from backend (never trust frontend amount)
-        fetch('api/recharge-session.php')
+        fetch('api/recharge-session.php',{credentials:'include'})
         .then(function(r){ return r.json(); })
         .then(function(sess){
             var s = (sess&&sess.data)||{};
@@ -305,7 +305,7 @@ window.CheckoutScreen = {
 
     createServerTransaction:function(app){
         var st=App.getState();
-        return fetch('api/create-order.php',{method:'POST',headers:{'Content-Type':'application/json'},
+        return fetch('api/create-order.php',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',
             body:JSON.stringify({mobile:st.mobileNumber, plan_id:this._planId, operator:st.selectedOperator, upi_app:app})})
         .then(function(r){ return r.json().then(function(j){ return {http:r.status, body:j}; }); })
         .then(function(res){
@@ -507,7 +507,7 @@ window.CheckoutScreen = {
         document.getElementById('ckQrExpired').style.display='';
         this.qrInstance=null;
         var self=this;
-        fetch('api/verify-payment.php',{method:'POST',headers:{'Content-Type':'application/json'},
+        fetch('api/verify-payment.php',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',
             body:JSON.stringify({transaction_id:this._qrTxnId,status:'FAILED'})}).catch(function(){});
     },
 

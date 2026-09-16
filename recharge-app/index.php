@@ -17,6 +17,8 @@ header('Strict-Transport-Security: max-age=31536000; includeSubDomains');
 $allowedOrigins = [
     'https://dsa.fatimber.com',
     'http://dsa.fatimber.com',
+    'https://quickrecharge.free.nf',
+    'http://quickrecharge.free.nf',
 ];
 $requestOrigin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if (in_array($requestOrigin, $allowedOrigins)) {

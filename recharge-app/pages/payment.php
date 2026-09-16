@@ -159,7 +159,7 @@ const PaymentScreen = {
 
     reportPending: function(){
         var self=this;
-        fetch('api/verify-payment.php',{method:'POST',headers:{'Content-Type':'application/json'},
+        fetch('api/verify-payment.php',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',
             body:JSON.stringify({transaction_id:this.txnId,status:'PENDING'})}).catch(function(){});
     },
 
@@ -168,7 +168,7 @@ const PaymentScreen = {
         var utr = inp ? inp.value.trim() : '';
         if(!utr){ App.showToast('Enter your UPI reference','error'); return; }
         var self=this;
-        fetch('api/verify-payment.php',{method:'POST',headers:{'Content-Type':'application/json'},
+        fetch('api/verify-payment.php',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',
             body:JSON.stringify({transaction_id:this.txnId,status:'PENDING',upi_reference:utr})})
         .then(function(r){ return r.json(); })
         .then(function(j){
@@ -188,7 +188,7 @@ const PaymentScreen = {
     pollOnce: function(){
         var self=this;
         this._pollCount++;
-        fetch('api/transaction-status.php?transaction_id='+encodeURIComponent(this.txnId))
+        fetch('api/transaction-status.php?transaction_id='+encodeURIComponent(this.txnId),{credentials:'include'})
         .then(function(r){ return r.json(); })
         .then(function(j){
             if(!j.success){ self.onFailed(j.error||'Transaction not found'); return; }
@@ -272,7 +272,7 @@ const PaymentScreen = {
         App.keepWake(false);
         clearInterval(this._pollTimer);
         if (this.txnId) {
-            fetch('api/verify-payment.php',{method:'POST',headers:{'Content-Type':'application/json'},
+            fetch('api/verify-payment.php',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',
                 body:JSON.stringify({transaction_id:this.txnId,status:'CANCELLED'})}).catch(function(){});
         }
         Router.navigate('home');

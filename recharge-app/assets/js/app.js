@@ -96,12 +96,15 @@ const App = {
             var options = {
                 method: method,
                 headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
             };
             if (method === 'POST' && Object.keys(data).length > 0) {
                 options.body = JSON.stringify(data);
             }
             var response = await fetch('api/' + endpoint, options);
-            return await response.json();
+            var text = await response.text();
+            try { return JSON.parse(text); }
+            catch(e) { return { status: 'error', message: 'Server returned invalid response' }; }
         } catch (error) {
             console.error('API Error:', error);
             return { status: 'error', message: 'Network error. Please try again.' };

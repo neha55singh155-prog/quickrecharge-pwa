@@ -372,7 +372,7 @@ const HomeScreen = {
         App.haptic('medium');
         App.setState({ mobileNumber:number, selectedOperator:this.selectedOperator });
         // Persist server-side recharge session (authoritative)
-        fetch('api/recharge-session.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'init',mobile:number,operator:this.selectedOperator})})
+        fetch('api/recharge-session.php',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',body:JSON.stringify({action:'init',mobile:number,operator:this.selectedOperator})})
         .then(function(r){ return r.json(); })
         .then(function(j){
             if(!j.success){ App.showToast(j.error||'Invalid number','error'); return; }

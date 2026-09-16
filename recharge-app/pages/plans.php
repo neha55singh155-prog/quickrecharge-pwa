@@ -206,7 +206,7 @@ const PlansScreen = {
     loadPlans: async function(operator){
         this.showLoading();
         try{
-            var resp = await fetch('api/get-plans.php?operator='+encodeURIComponent(operator||'jio'));
+            var resp = await fetch('api/get-plans.php?operator='+encodeURIComponent(operator||'jio'),{credentials:'include'});
             var json = await resp.json();
             if(!json.success) throw new Error(json.error||'Failed to load plans');
             this.plans=(json.data.plans||[]).map(function(p){ return PlansScreen.normalizePlan(p, operator); });
@@ -454,7 +454,7 @@ const PlansScreen = {
         const plan=this.plans.find(p=>p.id===planId); if(!plan) return;
         App.haptic('medium');
         try{
-            var resp = await fetch('api/recharge-session.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'select-plan',plan_id:planId})});
+            var resp = await fetch('api/recharge-session.php',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',body:JSON.stringify({action:'select-plan',plan_id:planId})});
             var json = await resp.json();
             if(!json.success) throw new Error(json.error||'Plan unavailable');
             plan.amount = parseFloat(json.data.amount);
