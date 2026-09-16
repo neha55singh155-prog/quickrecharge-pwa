@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: quickrecharge
+    runtime: php
+    rootDir: recharge-app
+    buildCommand: ""
+    startCommand: php -S 0.0.0.0:$PORT -t .
+    envVars:
+      - key: PHP_VERSION
+        value: "8.2"
