@@ -479,22 +479,24 @@ const HomeScreen = {
             data.forEach(function(r,i){
                 var ini=r.n.split(' ').map(function(s){return s[0];}).join('').slice(0,2).toUpperCase();
                 var colorIdx=i%avatarColors.length;
-                var verifiedSvg='<svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.2" width="10" height="10"><path d="M5 13l4 4 10-10"/></svg>';
-                var timeText=r.days===0?'Just now':r.days===1?'Yesterday':r.days+'d ago';
+                var verifiedSvg='<svg viewBox="0 0 24 24" fill="none" stroke="#188038" stroke-width="2" width="11" height="11"><path d="M5 13l4 4 10-10"/></svg>';
+                var timeText=r.days===0?'Just now':r.days===1?'1 day ago':r.days+' days ago';
                 html+='<div class="review-card">';
+                html+='<div class="review-card-inner">';
                 html+='<div class="review-head">';
                 html+='<div class="review-avatar" style="background:'+avatarColors[colorIdx]+'">'+ini+'</div>';
                 html+='<div class="review-meta">';
                 html+='<strong>'+r.n+'</strong>';
                 html+='<span>'+r.c+'<span class="city-dot"></span>'+r.op+' User</span>';
                 html+='</div>';
-                html+='<div class="review-stars">'+renderStars(r.r)+'<span class="rv-num">'+r.r+'.0</span></div>';
+                html+='<div class="review-stars">'+renderStars(r.r)+'</div>';
                 html+='</div>';
                 html+='<div class="review-text">'+r.t+'</div>';
                 html+='<div class="review-op-badge"><span class="op-dot" style="background:'+(r.op==='Jio'?'#0A3D91':r.op==='Airtel'?'#ED1C24':r.op==='Vi'?'#E60000':'#0A8A4B')+'"></span>'+r.op+' · '+r.plan+'</div>';
                 html+='<div class="review-foot">';
-                html+='<span class="review-date"><svg viewBox="0 0 24 24" fill="none" stroke="#B8B8C0" stroke-width="1.8" width="10" height="10"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> '+timeText+'</span>';
+                html+='<span class="review-date"><svg viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="1.8" width="11" height="11"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> '+timeText+'</span>';
                 html+='<span class="review-verified">'+verifiedSvg+' Verified</span>';
+                html+='</div>';
                 html+='</div>';
                 if(r.tag) html+='<div class="review-badge-tag">'+r.tag+'</div>';
                 html+='</div>';
