@@ -251,15 +251,15 @@ if (count($ti) < 3) { while (count($ti) < 3) $ti[] = ''; }
         <div class="rating-summary" id="ratingSummary">
             <div class="rating-summary-left">
                 <div class="rating-big">4.8</div>
-                <div class="rating-big-stars">★★★★★</div>
+                <div class="rating-big-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
                 <div class="rating-total">3,847 ratings</div>
             </div>
             <div class="rating-bars">
-                <div class="rating-bar-row"><span class="rb-label">5 ★</span><div class="rb-track"><div class="rb-fill" style="width:78%;background:linear-gradient(90deg,#22C55E,#4ADE80)"></div></div><span class="rb-pct">78%</span></div>
-                <div class="rating-bar-row"><span class="rb-label">4 ★</span><div class="rb-track"><div class="rb-fill" style="width:14%;background:linear-gradient(90deg,#84CC16,#A3E635)"></div></div><span class="rb-pct">14%</span></div>
-                <div class="rating-bar-row"><span class="rb-label">3 ★</span><div class="rb-track"><div class="rb-fill" style="width:5%;background:linear-gradient(90deg,#F59E0B,#FBBF24)"></div></div><span class="rb-pct">5%</span></div>
-                <div class="rating-bar-row"><span class="rb-label">2 ★</span><div class="rb-track"><div class="rb-fill" style="width:2%;background:linear-gradient(90deg,#F97316,#FB923C)"></div></div><span class="rb-pct">2%</span></div>
-                <div class="rating-bar-row"><span class="rb-label">1 ★</span><div class="rb-track"><div class="rb-fill" style="width:1%;background:linear-gradient(90deg,#EF4444,#F87171)"></div></div><span class="rb-pct">1%</span></div>
+                <div class="rating-bar-row"><span class="rb-label">5</span><div class="rb-track"><div class="rb-fill" style="width:78%;background:linear-gradient(90deg,#22C55E,#4ADE80)"></div></div><span class="rb-pct">78%</span></div>
+                <div class="rating-bar-row"><span class="rb-label">4</span><div class="rb-track"><div class="rb-fill" style="width:14%;background:linear-gradient(90deg,#84CC16,#A3E635)"></div></div><span class="rb-pct">14%</span></div>
+                <div class="rating-bar-row"><span class="rb-label">3</span><div class="rb-track"><div class="rb-fill" style="width:5%;background:linear-gradient(90deg,#F59E0B,#FBBF24)"></div></div><span class="rb-pct">5%</span></div>
+                <div class="rating-bar-row"><span class="rb-label">2</span><div class="rb-track"><div class="rb-fill" style="width:2%;background:linear-gradient(90deg,#F97316,#FB923C)"></div></div><span class="rb-pct">2%</span></div>
+                <div class="rating-bar-row"><span class="rb-label">1</span><div class="rb-track"><div class="rb-fill" style="width:1%;background:linear-gradient(90deg,#EF4444,#F87171)"></div></div><span class="rb-pct">1%</span></div>
             </div>
         </div>
 
@@ -474,9 +474,11 @@ const HomeScreen = {
         ];
 
         function renderStars(r){
-            var full='★'.repeat(r);
-            var empty='<span style="color:#E5DEFF">★</span>'.repeat(5-r);
-            return full+empty;
+            var s='';
+            for(var i=1;i<=5;i++){
+                s+='<span class="star'+(i>r?' empty':'')+'">★</span>';
+            }
+            return s;
         }
 
         var filterState='all';
@@ -494,22 +496,20 @@ const HomeScreen = {
                 var ini=r.n.split(' ').map(function(s){return s[0];}).join('').slice(0,2).toUpperCase();
                 var colorIdx=i%avatarColors.length;
                 var verifiedSvg='<svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.2" width="10" height="10"><path d="M5 13l4 4 10-10"/></svg>';
-                var timeText=r.days===0?'Today':r.days===1?'Yesterday':r.days+' days ago';
-                html+='<div class="review-card'+(r.img?' has-photo':'')+'">';
+                var timeText=r.days===0?'Just now':r.days===1?'Yesterday':r.days+'d ago';
+                html+='<div class="review-card">';
                 html+='<div class="review-head">';
                 html+='<div class="review-avatar" style="background:'+avatarColors[colorIdx]+'">'+ini+'</div>';
                 html+='<div class="review-meta">';
                 html+='<strong>'+r.n+'</strong>';
-                html+='<span>'+r.c+' <span class="city-dot"></span> '+r.op+' User</span>';
+                html+='<span>'+r.c+'<span class="city-dot"></span>'+r.op+' User</span>';
                 html+='</div>';
-                html+='<div class="review-stars-wrap">';
-                html+='<span class="review-stars">'+renderStars(r.r)+' <b>'+r.r+'.0</b></span>';
-                html+='</div>';
+                html+='<div class="review-stars">'+renderStars(r.r)+'<span class="rv-num">'+r.r+'.0</span></div>';
                 html+='</div>';
                 html+='<div class="review-text">'+r.t+'</div>';
-                html+='<div class="review-op-badge"><span class="op-dot" style="background:'+(r.op==='Jio'?'#0A3D91':r.op==='Airtel'?'#ED1C24':r.op==='Vi'?'#E60000':'#0A8A4B')+'"></span>'+r.op+' • '+r.plan+'</div>';
+                html+='<div class="review-op-badge"><span class="op-dot" style="background:'+(r.op==='Jio'?'#0A3D91':r.op==='Airtel'?'#ED1C24':r.op==='Vi'?'#E60000':'#0A8A4B')+'"></span>'+r.op+' · '+r.plan+'</div>';
                 html+='<div class="review-foot">';
-                html+='<span class="review-date"><svg viewBox="0 0 24 24" fill="none" stroke="#B8B8C0" stroke-width="1.8" width="11" height="11"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> '+timeText+' • <span class="helpful-count" data-idx="'+i+'">'+(r.helpful)+' found helpful</span></span>';
+                html+='<span class="review-date"><svg viewBox="0 0 24 24" fill="none" stroke="#B8B8C0" stroke-width="1.8" width="10" height="10"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> '+timeText+'</span>';
                 html+='<span class="review-verified">'+verifiedSvg+' Verified</span>';
                 html+='</div>';
                 if(r.tag) html+='<div class="review-badge-tag">'+r.tag+'</div>';
