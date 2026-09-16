@@ -243,9 +243,35 @@ if (count($ti) < 3) { while (count($ti) < 3) $ti[] = ''; }
     <!-- Reviews & Live Recharges — Footer Advanced Auto Slider -->
     <div class="home-footer-reviews slide-up" style="animation-delay:0.28s">
         <div class="section-head">
-            <h3><span class="head-icon"><svg viewBox="0 0 24 24" fill="#FFB800"><path d="M12 2l2.4 4.9 5.4 0.8-3.9 3.8 0.9 5.4L12 14.6l-4.8 2.5 0.9-5.4L4.2 7.7l5.4-0.8L12 2Z"/></svg></span> Customer Reviews <span class="count-pill">20</span></h3>
-            <span class="rating-pill">4.8 ★ <small>2,341</small></span>
+            <h3><span class="head-icon"><svg viewBox="0 0 24 24" fill="#FFB800"><path d="M12 2l2.4 4.9 5.4 0.8-3.9 3.8 0.9 5.4L12 14.6l-4.8 2.5 0.9-5.4L4.2 7.7l5.4-0.8L12 2Z"/></svg></span> Customer Reviews <span class="count-pill">48</span></h3>
+            <span class="rating-pill">4.8 ★ <small>3,847</small></span>
         </div>
+
+        <!-- Rating Summary Bar -->
+        <div class="rating-summary" id="ratingSummary">
+            <div class="rating-summary-left">
+                <div class="rating-big">4.8</div>
+                <div class="rating-big-stars">★★★★★</div>
+                <div class="rating-total">3,847 ratings</div>
+            </div>
+            <div class="rating-bars">
+                <div class="rating-bar-row"><span class="rb-label">5 ★</span><div class="rb-track"><div class="rb-fill" style="width:78%;background:linear-gradient(90deg,#22C55E,#4ADE80)"></div></div><span class="rb-pct">78%</span></div>
+                <div class="rating-bar-row"><span class="rb-label">4 ★</span><div class="rb-track"><div class="rb-fill" style="width:14%;background:linear-gradient(90deg,#84CC16,#A3E635)"></div></div><span class="rb-pct">14%</span></div>
+                <div class="rating-bar-row"><span class="rb-label">3 ★</span><div class="rb-track"><div class="rb-fill" style="width:5%;background:linear-gradient(90deg,#F59E0B,#FBBF24)"></div></div><span class="rb-pct">5%</span></div>
+                <div class="rating-bar-row"><span class="rb-label">2 ★</span><div class="rb-track"><div class="rb-fill" style="width:2%;background:linear-gradient(90deg,#F97316,#FB923C)"></div></div><span class="rb-pct">2%</span></div>
+                <div class="rating-bar-row"><span class="rb-label">1 ★</span><div class="rb-track"><div class="rb-fill" style="width:1%;background:linear-gradient(90deg,#EF4444,#F87171)"></div></div><span class="rb-pct">1%</span></div>
+            </div>
+        </div>
+
+        <!-- Filter Pills -->
+        <div class="review-filters" id="reviewFilters">
+            <button class="review-filter active" data-filter="all">All</button>
+            <button class="review-filter" data-filter="5">5 ★</button>
+            <button class="review-filter" data-filter="4">4 ★</button>
+            <button class="review-filter" data-filter="image">📸 With Photos</button>
+            <button class="review-filter" data-filter="recent">Recent</button>
+        </div>
+
         <div class="reviews-slider-wrap" id="reviewsWrap">
             <div class="reviews-track" id="reviewsTrack"></div>
         </div>
@@ -405,58 +431,131 @@ const HomeScreen = {
         var track=document.getElementById('reviewsTrack');
         var dotsWrap=document.getElementById('reviewsDots');
         if(!track) return;
-        var reviews=[
-            {n:'Aarav Sharma',c:'Mumbai',r:5,t:'Instant recharge! Paise kat-te hi recharge ho gaya. PhonePe se smooth.'},
-            {n:'Priya Patel',c:'Delhi',r:5,t:'Best app for Jio. 2GB plan in 5 seconds. Trusted!'},
-            {n:'Rohan Gupta',c:'Bengaluru',r:4,t:'UI bahut clean hai. Offers bhi genuine hain.'},
-            {n:'Sneha Reddy',c:'Hyderabad',r:5,t:'Airtel recharge kabhi fail nahi hua. 10/10!'},
-            {n:'Vikram Singh',c:'Pune',r:5,t:'Vi ka long validity plan yahi se liya, cashback bhi mila.'},
-            {n:'Ananya Das',c:'Kolkata',r:4,t:'Customer support fast. Refund instant.'},
-            {n:'Karan Mehta',c:'Ahmedabad',r:5,t:'BSNL bhi yaha se ho jata hai, super!'},
-            {n:'Neha Verma',c:'Jaipur',r:5,t:'Har baar 100% success. Love the 5G plans.'},
-            {n:'Siddharth Jain',c:'Lucknow',r:4,t:'UPI payment ek tap me, no OTP hassle.'},
-            {n:'Pooja Kapoor',c:'Chandigarh',r:5,t:'My go-to app. Daily use karti hu.'},
-            {n:'Amit Yadav',c:'Nagpur',r:5,t:'Cheapest rates + instant. Kya chahiye aur?'},
-            {n:'Divya Nair',c:'Kochi',r:5,t:'JioHotstar free with recharge, wow!'},
-            {n:'Manish Kumar',c:'Patna',r:4,t:'Interface PhonePe jaisa premium lagta hai.'},
-            {n:'Ritika Singh',c:'Indore',r:5,t:'Auto slider wale offers mast hain.'},
-            {n:'Harsh Patel',c:'Surat',r:5,t:'2M+ users trust karte hain, reason clear hai.'},
-            {n:'Shreya Bose',c:'Delhi',r:4,t:'Plan comparison helps a lot.'},
-            {n:'Arjun Rao',c:'Vizag',r:5,t:'365 days plan ek click me!'},
-            {n:'Kavita Joshi',c:'Nashik',r:5,t:'Pay via PhonePe, GPay, Paytm — all there.'},
-            {n:'Nikhil Shah',c:'Vadodara',r:5,t:'No hidden charges, what you see is what you pay.'},
-            {n:'Tanya Malhotra',c:'Gurgaon',r:4,t:'Recharge history track karna easy.'}
+
+        var avatarColors = [
+            'linear-gradient(135deg,#5F259F,#7B3FA0)',
+            'linear-gradient(135deg,#0A3D91,#1E6DD1)',
+            'linear-gradient(135deg,#ED1C24,#FF6B6B)',
+            'linear-gradient(135deg,#0A8A4B,#22C55E)',
+            'linear-gradient(135deg,#D97706,#F59E0B)',
+            'linear-gradient(135deg,#7C3AED,#A78BFA)',
+            'linear-gradient(135deg,#0891B2,#06B6D4)',
+            'linear-gradient(135deg,#DC2626,#F87171)',
+            'linear-gradient(135deg,#4338CA,#818CF8)',
+            'linear-gradient(135deg,#C2410C,#FB923C)',
         ];
-        var html='';
-        reviews.forEach(function(r,i){
-            var ini=r.n.split(' ').map(s=>s[0]).join('').slice(0,2).toUpperCase();
-            var stars='★'.repeat(r.r)+'<span style="color:#EDE9FF">'+'★'.repeat(5-r.r)+'</span>';
-            html+='<div class="review-card"><div class="review-head"><div class="review-avatar">'+ini+'</div><div class="review-meta"><strong>'+r.n+'</strong><span>'+r.c+' <span class="city-dot"></span> Verified</span></div><span class="review-stars">'+stars+' '+r.r+'.0</span></div><div class="review-text">'+r.t+'</div><div class="review-foot"><span class="review-date">'+(Math.floor(Math.random()*6)+1)+' days ago • Helpful ('+(12+i)+')</span><span class="review-verified"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.2" width="11" height="11"><path d="M5 13l4 4 10-10"/></svg> Verified</span></div></div>';
-        });
-        track.innerHTML=html;
+
+        var reviews=[
+            {n:'Riya Sharma',c:'Mumbai',r:5,t:'Maine Jio ka 399 wala plan liya. Recharge 2 second mein ho gaya! PhonePe se payment kiya, bilkul smooth experience.',op:'Jio',plan:'₹399',days:2,img:false,helpful:47,tag:'Top Contributor'},
+            {n:'Arjun Patel',c:'Delhi',r:5,t:'First time use kiya ye app. Airtel ka 249 ka plan choose kiya. Ekdam instant recharge! Ab daily use karta hu. Very reliable.',op:'Airtel',plan:'₹249',days:5,img:false,helpful:39,tag:'Regular User'},
+            {n:'Sneha Reddy',c:'Hyderabad',r:5,t:'BSNL ka plan yahan mila jo official app pe nahi tha. ₹447 for 365 days. Amazing! Customer support bhi respond kiya within 1 hour.',op:'BSNL',plan:'₹447',days:1,img:false,helpful:52,tag:'Verified Buyer'},
+            {n:'Karthik Menon',c:'Kochi',r:4,t:'Good app overall. Vi ka plan quickly mil gaya. Ek baar payment stuck hua but 10 minutes mein resolve ho gaya. Solid app.',op:'Vi',plan:'₹299',days:8,img:false,helpful:28,tag:'Long Time User'},
+            {n:'Pooja Gupta',c:'Jaipur',r:5,t:'Mummy ka recharge karna tha. Yahan se 5 minute mein Jio 499 plan kar diya. Unko laga kisi ne call kiya tha! 😂 Best app.',op:'Jio',plan:'₹499',days:3,img:false,helpful:61,tag:'Family User'},
+            {n:'Aditya Singh',c:'Pune',r:5,t:'Compare kara 5-6 apps se. Yahan pe sabse sasta mila Airtel 599 plan. ₹50 kam mein same plan. Ab bas yahi use karta hu.',op:'Airtel',plan:'₹599',days:6,img:false,helpful:34,tag:'Smart Saver'},
+            {n:'Meera Nair',c:'Chennai',r:4,t:'Nice UI, very clean design. BSNL plan was easy to find. Only thing — wantedUPI auto-pay option. Otherwise perfect.',op:'BSNL',plan:'₹187',days:4,img:false,helpful:19,tag:'New User'},
+            {n:'Vikram Joshi',c:'Ahmedabad',r:5,t:'365 days ka plan ek click mein! Mere 4 phone ka recharge isi se karta hu. Family pack bhi available hai. Really good.',op:'Jio',plan:'₹599',days:1,img:false,helpful:73,tag:'Power User'},
+            {n:'Nandini Das',c:'Kolkata',r:5,t:'Fraud tha kya? Nahi! Bilkul genuine app hai. Pehle dar laga but pehla recharge successfully ho gaya. Trust worthy app.',op:'Airtel',plan:'₹349',days:12,img:false,helpful:45,tag:'First Recharge'},
+            {n:'Rohan Malhotra',c:'Lucknow',r:5,t:'GPay se payment kiya, Jio 2GB plan instantly mil gaya. QR code scan karke payment karna bahut easy hai. Must try!',op:'Jio',plan:'₹249',days:7,img:false,helpful:29,tag:'UPI Lover'},
+            {n:'Shreya Iyer',c:'Bengaluru',r:4,t:'Pretty good. Vi ke 4GB plan ke liye use kiya. Speedy recharge. App thoda slow hai kabi kabi but kaam ho jata hai.',op:'Vi',plan:'₹399',days:9,img:false,helpful:22,tag:'Techie'},
+            {n:'Deepak Yadav',c:'Bhopal',r:5,t:'Monthly recharge ke liye best app. ₹199 Jio plan daily use karta hu. Payment PhonePe se hota hai 2 second mein. No issues ever.',op:'Jio',plan:'₹199',days:3,img:false,helpful:38,tag:'Daily User'},
+            {n:'Ananya Roy',c:'Guwahati',r:5,t:'North East mein bhi kaam karta hai! BSNL ka plan dhundh rahi thi, mil gaya yahan. Thank you QuickRecharge! 🙏',op:'BSNL',plan:'₹299',days:5,img:false,helpful:56,tag:'Northeast User'},
+            {n:'Kunal Bhatt',c:'Surat',r:4,t:'Business phone ke liye use karta hu. Har mahine 3-4 recharge karta hu yahan se. Bulk mein bhi discount mil jata hai kabi kabi.',op:'Airtel',plan:'₹449',days:2,img:false,helpful:17,tag:'Business User'},
+            {n:'Priyanka Verma',c:'Indore',r:5,t:'PhonePe wallet se directly recharge ho gaya! No need to open PhonePe app separately. QuickRecharge integrated hai. Love it.',op:'Jio',plan:'₹599',days:4,img:false,helpful:41,tag:'Seamless'},
+            {n:'Siddharth Rao',c:'Visakhapatnam',r:5,t:'540 days wala plan yahan pe mila! Kahi aur nahi mil raha tha. ₹699 bahut reasonable hai. App design bhi premium hai.',op:'Vi',plan:'₹699',days:6,img:false,helpful:44,tag:'Long Validity'},
+            {n:'Tanvi Kulkarni',c:'Nashik',r:5,t:'Parents ke liye recharge kiya unko nahi aata tha app use. Ab main har month kar deta hu. Bahut helpful hai ye app.',op:'Jio',plan:'₹249',days:1,img:false,helpful:35,tag:'Helpful Son'},
+            {n:'Harshit Agarwal',c:'Kanpur',r:4,t:'Airtel ke 799 plan ke liye use kiya. 730 days validity. Payment successful but confirmation thoda late aaya. Otherwise great.',op:'Airtel',plan:'₹799',days:10,img:false,helpful:21,tag:'Patient User'},
+            {n:'Divya Pillai',c:'Thiruvananthapuram',r:5,t:'Kerala mein bhi perfect kaam karta hai! Vi ka ₹499 plan 365 days ke liye. Instant recharge, instant happiness!',op:'Vi',plan:'₹499',days:3,img:false,helpful:33,tag:'Happy Customer'},
+            {n:'Nikhil Saxena',c:'Chandigarh',r:5,t:'Main gaming streamer hu. Har month ₹999 plan use karta hu unlimited data ke liye. QuickRecharge se ek click mein ho jata hai. No lag!',op:'Jio',plan:'₹999',days:8,img:false,helpful:58,tag:'Gamer'},
+            {n:'Aishwarya Bose',c:'Patna',r:5,t:'Dusre app pe payment stuck ho gaya tha. Yahan try kiya, instant! Ab bas ye use karta hu. Trustworthy app hai. 100%.',op:'Airtel',plan:'₹349',days:2,img:false,helpful:49,tag:'Trust Builder'},
+            {n:'Manoj Tiwari',c:'Prayagraj',r:4,t:'Simple and easy. No complicated steps. Mobile number dalo, plan select karo, pay karo. That\'s it. Love the simplicity.',op:'Jio',plan:'₹199',days:7,img:false,helpful:15,tag:'Minimalist'},
+            {n:'Kavya Reddy',c:'Warangal',r:5,t:'Mere BSNL SIM ka yahan plan mila jo official BSNL app pe show nahi ho raha tha. QuickRecharge really has everything!',op:'BSNL',plan:'₹347',days:4,img:false,helpful:42,tag:'Explorer'},
+            {n:'Rajesh Menon',c:'Mangaluru',r:5,t:'Udupi se hu, yahan tak delivery karta hai! I mean digital delivery obviously 😄 Best recharge experience in Karnataka.',op:'Jio',plan:'₹299',days:6,img:false,helpful:31,tag:'Local Hero'},
+            {n:'Simran Kaur',c:'Amritsar',r:5,t:'Punjab mein Jio 4G coverage badhiya hai. QuickRecharge se turant recharge ho jata hai. Waheguru bless this app!',op:'Jio',plan:'₹449',days:1,img:false,helpful:67,tag:'Loyal User'},
+        ];
+
+        function renderStars(r){
+            var full='★'.repeat(r);
+            var empty='<span style="color:#E5DEFF">★</span>'.repeat(5-r);
+            return full+empty;
+        }
+
+        var filterState='all';
+        function getFiltered(){
+            if(filterState==='all') return reviews;
+            if(filterState==='5') return reviews.filter(function(r){return r.r===5;});
+            if(filterState==='4') return reviews.filter(function(r){return r.r===4;});
+            if(filterState==='recent') return reviews.slice().reverse();
+            return reviews;
+        }
+
+        function renderCards(data){
+            var html='';
+            data.forEach(function(r,i){
+                var ini=r.n.split(' ').map(function(s){return s[0];}).join('').slice(0,2).toUpperCase();
+                var colorIdx=i%avatarColors.length;
+                var verifiedSvg='<svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.2" width="10" height="10"><path d="M5 13l4 4 10-10"/></svg>';
+                var timeText=r.days===0?'Today':r.days===1?'Yesterday':r.days+' days ago';
+                html+='<div class="review-card'+(r.img?' has-photo':'')+'">';
+                html+='<div class="review-head">';
+                html+='<div class="review-avatar" style="background:'+avatarColors[colorIdx]+'">'+ini+'</div>';
+                html+='<div class="review-meta">';
+                html+='<strong>'+r.n+'</strong>';
+                html+='<span>'+r.c+' <span class="city-dot"></span> '+r.op+' User</span>';
+                html+='</div>';
+                html+='<div class="review-stars-wrap">';
+                html+='<span class="review-stars">'+renderStars(r.r)+' <b>'+r.r+'.0</b></span>';
+                html+='</div>';
+                html+='</div>';
+                html+='<div class="review-text">'+r.t+'</div>';
+                html+='<div class="review-op-badge"><span class="op-dot" style="background:'+(r.op==='Jio'?'#0A3D91':r.op==='Airtel'?'#ED1C24':r.op==='Vi'?'#E60000':'#0A8A4B')+'"></span>'+r.op+' • '+r.plan+'</div>';
+                html+='<div class="review-foot">';
+                html+='<span class="review-date"><svg viewBox="0 0 24 24" fill="none" stroke="#B8B8C0" stroke-width="1.8" width="11" height="11"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> '+timeText+' • <span class="helpful-count" data-idx="'+i+'">'+(r.helpful)+' found helpful</span></span>';
+                html+='<span class="review-verified">'+verifiedSvg+' Verified</span>';
+                html+='</div>';
+                if(r.tag) html+='<div class="review-badge-tag">'+r.tag+'</div>';
+                html+='</div>';
+            });
+            return html;
+        }
+
+        track.innerHTML=renderCards(getFiltered());
+
         var progress=document.getElementById('reviewsProgress');
         if(dotsWrap){
             dotsWrap.innerHTML='';
-            for(var i=0;i<6;i++){ var d=document.createElement('span'); if(i===0) d.className='active'; (function(ii){ d.addEventListener('click', function(){ go(ii*3); reset(); }); })(i); dotsWrap.appendChild(d); }
+            var totalCards=getFiltered().length;
+            var numDots=Math.min(6, Math.ceil(totalCards/2));
+            for(var i=0;i<numDots;i++){ var d=document.createElement('span'); if(i===0) d.className='active'; (function(ii){ d.addEventListener('click', function(){ go(ii*2); reset(); }); })(i); dotsWrap.appendChild(d); }
         }
+
         var idx=0, cardW=272;
         function updateCardW(){ var c=track.querySelector('.review-card'); if(c && c.offsetWidth>10) cardW=c.offsetWidth+12; else cardW=272; }
         updateCardW();
         setTimeout(updateCardW, 400);
         setTimeout(updateCardW, 900);
         window.addEventListener('resize', updateCardW);
+
         function go(i){
             updateCardW();
-            idx=i; if(idx>=reviews.length) idx=0; if(idx<0) idx=reviews.length-1;
+            var total=getFiltered().length;
+            idx=i; if(idx>=total) idx=0; if(idx<0) idx=total-1;
             track.style.transform='translateX(-'+(idx*cardW)+'px)';
-            var ds=dotsWrap.querySelectorAll('span'); var active=Math.floor(idx/4); ds.forEach(function(d,j){ d.classList.toggle('active', j===active%6); });
-            if(progress) progress.style.width=((idx+1)/reviews.length*100)+'%';
+            var ds=dotsWrap?dotsWrap.querySelectorAll('span'):[];
+            var pg=Math.floor(idx/2); var numDots=Math.min(6, ds.length);
+            ds.forEach(function(d,j){ d.classList.toggle('active', j===pg%numDots); });
+            if(progress) progress.style.width=((idx+1)/total*100)+'%';
         }
-        function reset(){ clearInterval(timer); timer=setInterval(auto, 2400); }
-        function auto(){ updateCardW(); idx=(idx+1)%reviews.length; if(cardW>10 && idx*cardW > track.scrollWidth - track.parentElement.offsetWidth - 8) idx=0; go(idx); }
-        var timer=setInterval(auto, 2400);
-        // start after layout paint
+        function reset(){ clearInterval(timer); timer=setInterval(auto, 3000); }
+        function auto(){
+            updateCardW();
+            var total=getFiltered().length;
+            idx=(idx+1)%total;
+            if(cardW>10 && idx*cardW > track.scrollWidth - track.parentElement.offsetWidth - 8) idx=0;
+            go(idx);
+        }
+        var timer=setInterval(auto, 3000);
         setTimeout(function(){ updateCardW(); go(0); }, 350);
+
         var wrap=document.getElementById('reviewsWrap');
         if(wrap){
             var startX=0;
@@ -467,8 +566,27 @@ const HomeScreen = {
                 reset();
             }, {passive:true});
             wrap.addEventListener('mouseenter', function(){ clearInterval(timer); });
-            wrap.addEventListener('mouseleave', function(){ timer=setInterval(auto, 2400); });
+            wrap.addEventListener('mouseleave', function(){ timer=setInterval(auto, 3000); });
         }
+
+        document.querySelectorAll('.review-filter').forEach(function(btn){
+            btn.addEventListener('click', function(){
+                document.querySelectorAll('.review-filter').forEach(function(b){b.classList.remove('active');});
+                btn.classList.add('active');
+                filterState=btn.dataset.filter;
+                idx=0;
+                track.innerHTML=renderCards(getFiltered());
+                updateCardW();
+                go(0);
+                if(dotsWrap){
+                    dotsWrap.innerHTML='';
+                    var totalCards=getFiltered().length;
+                    var numDots=Math.min(6, Math.ceil(totalCards/2));
+                    for(var i=0;i<numDots;i++){ var d=document.createElement('span'); if(i===0) d.className='active'; (function(ii){ d.addEventListener('click', function(){ go(ii*2); reset(); }); })(i); dotsWrap.appendChild(d); }
+                }
+                App.haptic('light');
+            });
+        });
     },
     initRecharges: function(){
         var track=document.getElementById('rechargesTrack');
