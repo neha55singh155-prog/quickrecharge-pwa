@@ -247,22 +247,6 @@ if (count($ti) < 3) { while (count($ti) < 3) $ti[] = ''; }
             <span class="rating-pill">4.8 ★ <small>3,847</small></span>
         </div>
 
-        <!-- Rating Summary Bar -->
-        <div class="rating-summary" id="ratingSummary">
-            <div class="rating-summary-left">
-                <div class="rating-big">4.8</div>
-                <div class="rating-big-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-                <div class="rating-total">3,847 ratings</div>
-            </div>
-            <div class="rating-bars">
-                <div class="rating-bar-row"><span class="rb-label">5</span><div class="rb-track"><div class="rb-fill" style="width:78%;background:linear-gradient(90deg,#22C55E,#4ADE80)"></div></div><span class="rb-pct">78%</span></div>
-                <div class="rating-bar-row"><span class="rb-label">4</span><div class="rb-track"><div class="rb-fill" style="width:14%;background:linear-gradient(90deg,#84CC16,#A3E635)"></div></div><span class="rb-pct">14%</span></div>
-                <div class="rating-bar-row"><span class="rb-label">3</span><div class="rb-track"><div class="rb-fill" style="width:5%;background:linear-gradient(90deg,#F59E0B,#FBBF24)"></div></div><span class="rb-pct">5%</span></div>
-                <div class="rating-bar-row"><span class="rb-label">2</span><div class="rb-track"><div class="rb-fill" style="width:2%;background:linear-gradient(90deg,#F97316,#FB923C)"></div></div><span class="rb-pct">2%</span></div>
-                <div class="rating-bar-row"><span class="rb-label">1</span><div class="rb-track"><div class="rb-fill" style="width:1%;background:linear-gradient(90deg,#EF4444,#F87171)"></div></div><span class="rb-pct">1%</span></div>
-            </div>
-        </div>
-
         <!-- Filter Pills -->
         <div class="review-filters" id="reviewFilters">
             <button class="review-filter active" data-filter="all">All</button>
