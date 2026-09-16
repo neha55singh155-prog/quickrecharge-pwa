@@ -55,13 +55,19 @@ class PaymentService {
         return 'upi://pay?' . $params;
     }
 
-    /** Per-app deep link. Falls back to generic upi://pay. */
+    /**
+     * Per-app deep link for mobile UPI payments.
+     * Official schemes from Juspay/UPI docs:
+     *   PhonePe: phonepe://pay?...
+     *   GPay:    tez://upi/pay?...
+     *   Paytm:   paytmmp://upi/pay?...
+     */
     public static function appDeepLink($app, $upiUri) {
         $query = parse_url($upiUri, PHP_URL_QUERY);
         switch ($app) {
             case 'phonepe': return 'phonepe://pay?' . $query;
-            case 'gpay':    return 'tez://upi/pay?' . $query; // official GPay UPI intent host
-            case 'paytm':   return 'paytmmp://pay?' . $query;
+            case 'gpay':    return 'tez://upi/pay?' . $query;
+            case 'paytm':   return 'paytmmp://upi/pay?' . $query;
             case 'qr':
             default:        return $upiUri;
         }

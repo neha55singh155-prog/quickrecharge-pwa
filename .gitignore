@@ -1,0 +1,13 @@
+node_modules/
+.env
+*.log
+.DS_Store
+Thumbs.db
+recharge-app/admin/data/audit_log.json
+recharge-app/admin/data/payment_logs.json
+recharge-app/admin/data/transactions.json
+recharge-app/admin/data/orders.json
+recharge-app/uploads/*
+!recharge-app/uploads/pw1.png
+!recharge-app/uploads/pw2.png
+!recharge-app/uploads/pw4.png

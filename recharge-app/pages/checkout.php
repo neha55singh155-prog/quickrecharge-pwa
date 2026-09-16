@@ -254,9 +254,26 @@ window.CheckoutScreen = {
         })
         .catch(function(){ self.showSummaryError('Network error. Please check your connection and retry.'); });
 
-        var onVis = function(){ if(self._appOpened){ self._onReturnFromApp(); } };
-        window.addEventListener('pageshow', onVis);
-        window.addEventListener('focus', onVis);
+        // Detect app open via visibility change
+        document.addEventListener('visibilitychange', function(){
+            if(self._appOpened && document.visibilityState === 'visible'){
+                self._onReturnFromApp();
+            }
+        });
+        window.addEventListener('pageshow', function(){ if(self._appOpened) self._onReturnFromApp(); });
+        window.addEventListener('focus', function(){ if(self._appOpened) self._onReturnFromApp(); });
+    },
+
+    // Launch UPI app via custom scheme URI (phonepe://, paytmmp://, etc.)
+    _launchApp:function(uri){
+        // <a> click is most reliable for custom URI schemes on Android Chrome
+        var a = document.createElement('a');
+        a.setAttribute('href', uri);
+        a.setAttribute('rel', 'nofollow');
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function(){ document.body.removeChild(a); }, 300);
     },
 
     renderSummary:function(s){
@@ -302,18 +319,20 @@ window.CheckoutScreen = {
         App.haptic('medium');
         if(!this._planId){ App.showToast('Please select a plan first','error'); return; }
         if(app==='qr'){ this.showQR(); return; }
+        // Desktop / non-mobile: UPI deep links won't work — show QR instead
+        if(!isAndroid() && !isIOS()){
+            App.showToast('UPI apps work on mobile. Showing QR code…','info');
+            this.showQR();
+            return;
+        }
         App.showToast('Creating secure payment request…','info');
         this.createServerTransaction(app).then(function(d){
             self.serverTxn=d; self.serverAmount=parseFloat(d.amount);
             self._appOpened=true; self._lastApp=app;
+            self._appAttempt=1;
             self._startFallbackTimer(app);
             var uri=d.app_uri;
-            // Platform rule: Android uses app intent; iOS/web use generic UPI link w/ fallback
-            if(!isAndroid() && app!=='qr'){
-                // iOS browsers block custom schemes — still attempt, fallback modal covers failure
-                uri=d.upi_uri;
-            }
-            window.location.href=uri;
+            self._launchApp(uri);
         }).catch(function(e){ App.showToast(e.message,'error'); });
     },
 
@@ -321,8 +340,10 @@ window.CheckoutScreen = {
         var self=this;
         clearTimeout(this._fallbackTimer);
         this._fallbackTimer=setTimeout(function(){
-            if(self._appOpened){ self._appOpened=false; self.showFallback(app); }
-        },2500);
+            if(!self._appOpened) return;
+            self._appOpened=false;
+            self.showFallback(app);
+        },3000);
     },
 
     _onReturnFromApp:function(){
@@ -339,8 +360,8 @@ window.CheckoutScreen = {
         App.haptic('light');
         var map={phonepe:'PhonePe',gpay:'Google Pay',paytm:'Paytm'};
         var appName=map[app]||app;
-        document.getElementById('ckFallbackTitle').textContent=appName+' Not Available';
-        document.getElementById('ckFallbackMsg').textContent=appName+' is not available on this device.';
+        document.getElementById('ckFallbackTitle').textContent=appName+' Could Not Open';
+        document.getElementById('ckFallbackMsg').textContent='Tap a UPI app below to pay, or scan the QR code.';
         var colors={phonepe:'#5F259F',gpay:'#4285F4',paytm:'#00BAF2'};
         document.getElementById('ckFallbackIcon').innerHTML='<div style="width:64px;height:64px;border-radius:18px;background:'+(colors[app]||'#333')+';display:flex;align-items:center;justify-content:center;margin:0 auto 16px;"><span style="color:#fff;font-weight:800;font-size:20px">'+appName.charAt(0)+'</span></div>';
         var optDiv=document.getElementById('ckFallbackOptions');

@@ -8,7 +8,7 @@ var STATIC_CACHE = 'recharge-static-' + CACHE_VERSION;
 var DYNAMIC_CACHE = 'recharge-dynamic-' + CACHE_VERSION;
 var API_CACHE = 'recharge-api-' + CACHE_VERSION;
 
-var BASE = '/PWE/recharge-app/';
+var BASE = '/';
 
 var STATIC_ASSETS = [
     BASE,

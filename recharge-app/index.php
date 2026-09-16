@@ -15,8 +15,8 @@ header('Strict-Transport-Security: max-age=31536000; includeSubDomains');
 
 // --- CORS: restrict to same origin for API ---
 $allowedOrigins = [
-    // Add your production domain(s) here
-    // 'https://yourdomain.com',
+    'https://dsa.fatimber.com',
+    'http://dsa.fatimber.com',
 ];
 $requestOrigin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if (in_array($requestOrigin, $allowedOrigins)) {
@@ -101,7 +101,7 @@ header('Content-Type: text/html; charset=utf-8');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/PWE/recharge-app/">
+    <base href="https://dsa.fatimber.com/">
     <meta charset="UTF-8">
 
     <!-- Mobile Viewport — no zoom, safe areas -->

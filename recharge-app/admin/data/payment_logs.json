@@ -235,5 +235,233 @@
             "amount": 249,
             "method": "qr"
         }
+    },
+    {
+        "at": "2026-09-14 12:13:08",
+        "event": "transaction.created",
+        "context": {
+            "transaction_id": "RCH20260914814EF5C2F47FF663",
+            "mobile": "9876543210",
+            "plan_id": 1,
+            "amount": 199,
+            "method": "qr"
+        }
+    },
+    {
+        "at": "2026-09-14 12:13:49",
+        "event": "verification.pending",
+        "context": {
+            "transaction_id": "RCH20260914814EF5C2F47FF663"
+        }
+    },
+    {
+        "at": "2026-09-14 12:14:23",
+        "event": "transaction.created",
+        "context": {
+            "transaction_id": "RCH20260914AF47C6A357C2BEAF",
+            "mobile": "9876543210",
+            "plan_id": 1,
+            "amount": 199,
+            "method": "qr"
+        }
+    },
+    {
+        "at": "2026-09-14 12:14:23",
+        "event": "transaction.created",
+        "context": {
+            "transaction_id": "RCH20260914825DE4C2C36797E5",
+            "mobile": "9876543210",
+            "plan_id": 1,
+            "amount": 199,
+            "method": "qr"
+        }
+    },
+    {
+        "at": "2026-09-14 12:14:23",
+        "event": "transaction.created",
+        "context": {
+            "transaction_id": "RCH202609146E98ABB22C6F0D83",
+            "mobile": "9876543210",
+            "plan_id": 1,
+            "amount": 199,
+            "method": "qr"
+        }
+    },
+    {
+        "at": "2026-09-14 12:14:23",
+        "event": "transaction.created",
+        "context": {
+            "transaction_id": "RCH20260914F673F985506B7350",
+            "mobile": "9876543210",
+            "plan_id": 1,
+            "amount": 199,
+            "method": "qr"
+        }
+    },
+    {
+        "at": "2026-09-14 12:14:23",
+        "event": "transaction.created",
+        "context": {
+            "transaction_id": "RCH2026091407DCEFBB208E8E40",
+            "mobile": "9876543210",
+            "plan_id": 1,
+            "amount": 199,
+            "method": "qr"
+        }
+    },
+    {
+        "at": "2026-09-14 12:14:23",
+        "event": "transaction.created",
+        "context": {
+            "transaction_id": "RCH20260914A73EBABD5862295C",
+            "mobile": "9876543210",
+            "plan_id": 1,
+            "amount": 199,
+            "method": "qr"
+        }
+    },
+    {
+        "at": "2026-09-14 12:14:23",
+        "event": "transaction.created",
+        "context": {
+            "transaction_id": "RCH2026091498DE32AD862EF0BD",
+            "mobile": "9876543210",
+            "plan_id": 1,
+            "amount": 199,
+            "method": "qr"
+        }
+    },
+    {
+        "at": "2026-09-14 12:14:23",
+        "event": "transaction.created",
+        "context": {
+            "transaction_id": "RCH20260914E1AAB1C8250263E6",
+            "mobile": "9876543210",
+            "plan_id": 1,
+            "amount": 199,
+            "method": "qr"
+        }
+    },
+    {
+        "at": "2026-09-14 12:14:23",
+        "event": "transaction.created",
+        "context": {
+            "transaction_id": "RCH20260914539A0F486504F00B",
+            "mobile": "9876543210",
+            "plan_id": 1,
+            "amount": 199,
+            "method": "qr"
+        }
+    },
+    {
+        "at": "2026-09-14 12:14:23",
+        "event": "transaction.created",
+        "context": {
+            "transaction_id": "RCH20260914D0BF6BF9FAFA6341",
+            "mobile": "9876543210",
+            "plan_id": 1,
+            "amount": 199,
+            "method": "qr"
+        }
+    },
+    {
+        "at": "2026-09-14 12:14:52",
+        "event": "verification.frontend_success_rejected",
+        "context": {
+            "transaction_id": "RCH20260914814EF5C2F47FF663"
+        }
+    },
+    {
+        "at": "2026-09-14 12:14:52",
+        "event": "webhook.received",
+        "context": {
+            "order_id": 1038,
+            "status": "success",
+            "transaction_id": "WEBHOOK-TEST-123",
+            "amount": 199,
+            "currency": "INR"
+        }
+    },
+    {
+        "at": "2026-09-14 12:14:52",
+        "event": "webhook.received",
+        "context": {
+            "warning": "No WEBHOOK_SECRET configured \u2014 signature verification skipped"
+        }
+    },
+    {
+        "at": "2026-09-14 12:14:52",
+        "event": "webhook.received",
+        "context": {
+            "info": "Payment success confirmed",
+            "order_id": 1038,
+            "transaction_id": "WEBHOOK-TEST-123"
+        }
+    },
+    {
+        "at": "2026-09-14 12:16:35",
+        "event": "transaction.created",
+        "context": {
+            "transaction_id": "RCH20260914854B018D098DCE3A",
+            "mobile": "9876543210",
+            "plan_id": 1,
+            "amount": 199,
+            "method": "qr"
+        }
+    },
+    {
+        "at": "2026-09-14 12:16:35",
+        "event": "transaction.created",
+        "context": {
+            "transaction_id": "RCH20260914E4FE6BA74B01B538",
+            "mobile": "9876543210",
+            "plan_id": 1,
+            "amount": 199,
+            "method": "qr"
+        }
+    },
+    {
+        "at": "2026-09-14 12:16:35",
+        "event": "transaction.created",
+        "context": {
+            "transaction_id": "RCH20260914E96C5D4B0A33CABD",
+            "mobile": "9876543210",
+            "plan_id": 1,
+            "amount": 199,
+            "method": "qr"
+        }
+    },
+    {
+        "at": "2026-09-14 12:16:35",
+        "event": "transaction.created",
+        "context": {
+            "transaction_id": "RCH20260914C3C0E76251B97D97",
+            "mobile": "9876543210",
+            "plan_id": 1,
+            "amount": 199,
+            "method": "qr"
+        }
+    },
+    {
+        "at": "2026-09-14 12:16:35",
+        "event": "transaction.created",
+        "context": {
+            "transaction_id": "RCH2026091405595EB3D97F5E39",
+            "mobile": "9876543210",
+            "plan_id": 1,
+            "amount": 199,
+            "method": "qr"
+        }
+    },
+    {
+        "at": "2026-09-14 12:16:35",
+        "event": "transaction.created",
+        "context": {
+            "transaction_id": "RCH20260914434DA23A1D5E3DA9",
+            "mobile": "9876543210",
+            "plan_id": 1,
+            "amount": 199,
+            "method": "qr"
+        }
     }
 ]

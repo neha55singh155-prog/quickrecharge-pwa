@@ -26,9 +26,9 @@ Options -Indexes
     RewriteRule ^\.env - [F,L]
 </IfModule>
 
-# Force HTTPS in production (uncomment when SSL is configured)
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Force HTTPS in production
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Block PHP from being served as source
 <FilesMatch "\.php$">

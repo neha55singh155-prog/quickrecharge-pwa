@@ -7,7 +7,7 @@ require_once $basePath . '/admin/data/store.php';
 // --- Secure session configuration ---
 if (session_status() === PHP_SESSION_NONE) {
     ini_set('session.cookie_httponly', 1);
-    ini_set('session.cookie_secure', 0); // Set to 1 when HTTPS is enforced
+    ini_set('session.cookie_secure', 1); // HTTPS enforced on Hostinger
     ini_set('session.use_strict_mode', 1);
     ini_set('session.use_only_cookies', 1);
     ini_set('session.cookie_samesite', 'Lax');

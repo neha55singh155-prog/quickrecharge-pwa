@@ -1,0 +1,136 @@
+COMPLETE FILE TREE: recharge-app
+Generated: 2026-09-14
+Root: C:\Users\mohad\Downloads\m\htdocs\PWE\recharge-app
+================================================================
+
+recharge-app/
+|-- .htaccess                                                      [1,094 bytes]
+|
+|-- admin/
+|   |-- index.php                                                  [8,158 bytes]
+|   |
+|   |-- data/
+|   |   |-- checkout.json                                          [1,682 bytes]
+|   |   |-- home.json                                              [2,330 bytes]
+|   |   |-- operators.json                                           [931 bytes]
+|   |   |-- orders.json                                           [12,089 bytes]
+|   |   |-- payment_logs.json                                     [12,461 bytes]
+|   |   |-- plans.json                                            [12,586 bytes]
+|   |   |-- settings.json                                           [202 bytes]
+|   |   |-- store.php                                             [28,900 bytes]
+|   |   |-- transactions.json                                     [27,020 bytes]
+|   |
+|   |-- pages/
+|   |   |-- dashboard.php                                          [2,166 bytes]
+|   |   |-- home-content.php                                      [14,274 bytes]
+|   |   |-- layout-footer.php                                        [342 bytes]
+|   |   |-- layout-header.php                                      [8,774 bytes]
+|   |   |-- login.php                                              [2,719 bytes]
+|   |   |-- operator-form.php                                      [4,929 bytes]
+|   |   |-- operators.php                                          [2,565 bytes]
+|   |   |-- orders.php                                             [4,596 bytes]
+|   |   |-- payment-settings.php                                  [14,461 bytes]
+|   |   |-- plan-form.php                                          [5,315 bytes]
+|   |   |-- plans.php                                              [2,699 bytes]
+|   |   |-- settings.php                                           [2,965 bytes]
+|
+|-- api/
+|   |-- create-order.php                                           [4,445 bytes]
+|   |-- get-plans.php                                              [1,436 bytes]
+|   |-- home-content.php                                             [265 bytes]
+|   |-- payment-settings.php                                         [974 bytes]
+|   |-- payment-webhook.php                                        [6,496 bytes]
+|   |-- recharge-session.php                                       [3,272 bytes]
+|   |-- transaction-status.php                                     [1,334 bytes]
+|   |-- verify-number.php                                          [3,126 bytes]
+|   |-- verify-payment.php                                         [4,429 bytes]
+|
+|-- app/
+|   |-- helpers/
+|   |   |-- auth.php                                               [2,521 bytes]
+|   |   |-- database.php                                           [2,186 bytes]
+|   |   |-- rate-limiter.php                                       [2,768 bytes]
+|   |   |-- response.php                                           [1,867 bytes]
+|   |
+|   |-- services/
+|   |   |-- PaymentService.php                                     [3,517 bytes]
+|
+|-- assets/
+|   |-- css/
+|   |   |-- base.css                                              [18,106 bytes]
+|   |   |-- checkout.css                                          [13,399 bytes]
+|   |   |-- failed.css                                             [5,309 bytes]
+|   |   |-- home.css                                              [39,082 bytes]
+|   |   |-- payment.css                                            [6,538 bytes]
+|   |   |-- plans.css                                             [31,544 bytes]
+|   |   |-- splash.css                                             [2,859 bytes]
+|   |   |-- success.css                                            [5,376 bytes]
+|   |   |-- verify.css                                             [5,688 bytes]
+|   |
+|   |-- icons/
+|   |   |-- airtel.svg                                              [501 bytes]
+|   |   |-- bsnl.svg                                                [495 bytes]
+|   |   |-- jio.svg                                                 [447 bytes]
+|   |   |-- vi.svg                                                  [489 bytes]
+|   |
+|   |-- js/
+|       |-- app.js                                               [14,368 bytes]
+|       |-- router.js                                             [8,265 bytes]
+|
+|-- index.php                                                     [13,735 bytes]
+|
+|-- pages/
+|   |-- checkout.php                                              [27,971 bytes]
+|   |-- failed.php                                                 [4,850 bytes]
+|   |-- home.php                                                  [42,819 bytes]
+|   |-- payment.php                                               [12,773 bytes]
+|   |-- plans.php                                                 [36,098 bytes]
+|   |-- splash.php                                                 [1,344 bytes]
+|   |-- success.php                                                [6,327 bytes]
+|   |-- verify.php                                                 [5,438 bytes]
+|
+|-- pwa/
+|   |-- manifest.json                                              [2,395 bytes]
+|   |-- sw.js                                                     [6,754 bytes]
+|
+|-- uploads/
+|   |-- operators/
+|   |   |-- op_airtel.jpg                                          [5,866 bytes]
+|   |   |-- op_bsnl.jpg                                           [16,877 bytes]
+|   |   |-- op_jio.jpg                                             [5,647 bytes]
+|   |   |-- op_vi.jpg                                             [16,000 bytes]
+|   |
+|   |-- upi/
+|   |   |-- logo_2_1789382270.jpg                                  [8,606 bytes]
+|   |   |-- logo_3_1789382270.jpg                                 [23,290 bytes]
+|   |   |-- qr_1789381920.jpg                                     [19,291 bytes]
+|   |   |-- qr_1789382410.jpg                                     [24,187 bytes]
+|   |   |-- qr_1789383310.jpeg                                    [40,788 bytes]
+|   |
+|   |-- pw1.png                                                 [2,073,001 bytes]
+|   |-- pw2.png                                                 [2,011,296 bytes]
+|   |-- pw4.png                                                 [2,303,948 bytes]
+
+================================================================
+SUMMARY
+================================================================
+
+Directories: 15
+Files:       71
+Total Size:  4,923,491 bytes (4.69 MB)
+
+Directory Breakdown:
+  admin/data/          -  9 files  (66,211 bytes)
+  admin/pages/         - 12 files  (65,529 bytes)
+  api/                 -  9 files  (25,777 bytes)
+  app/helpers/         -  4 files   (9,342 bytes)
+  app/services/        -  1 file    (3,517 bytes)
+  assets/css/          -  9 files  (127,901 bytes)
+  assets/icons/        -  4 files   (1,932 bytes)
+  assets/js/           -  2 files  (22,633 bytes)
+  pages/               -  8 files (137,620 bytes)
+  pwa/                 -  2 files   (9,149 bytes)
+  uploads/operators/   -  4 files  (44,390 bytes)
+  uploads/upi/         -  5 files (116,162 bytes)
+  uploads/ (root)      -  3 files (6,388,245 bytes)
+  (root)               -  3 files (14,829 bytes)
