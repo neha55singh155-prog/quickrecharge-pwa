@@ -1,10 +1,8 @@
 services:
   - type: web
     name: quickrecharge
-    runtime: php
-    rootDir: recharge-app
-    buildCommand: ""
-    startCommand: php -S 0.0.0.0:$PORT -t .
+    runtime: docker
+    dockerfilePath: Dockerfile
     envVars:
-      - key: PHP_VERSION
-        value: "8.2"
+      - key: PORT
+        value: "8080"
