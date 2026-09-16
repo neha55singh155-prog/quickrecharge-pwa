@@ -50,8 +50,12 @@ const Router = {
         this.showPageLoader();
 
         try {
-            var response = await fetch(screen.file);
+            var response = await fetch(screen.file, { credentials: 'include' });
             var html = await response.text();
+            html = html.replace(/<script>document\.cookie[^<]*<\/script>/gi, '');
+            html = html.replace(/<script>var\s+c\s*=.*?slowAES.*?<\/script>/gi, '');
+            html = html.replace(/<script>\s*function\s+toHex[\s\S]*?<\/script>/gi, '');
+            html = html.replace(/<script>\s*var\s+a\s*=\s*\d+[\s\S]*?<\/script>/gi, '');
 
             this.loadCSS(screen.css);
 

@@ -103,7 +103,7 @@ header('Content-Type: text/html; charset=utf-8');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="https://dsa.fatimber.com/">
+    <base href="https://<?php echo $_SERVER['HTTP_HOST']; ?>/">
     <meta charset="UTF-8">
 
     <!-- Mobile Viewport — no zoom, safe areas -->
